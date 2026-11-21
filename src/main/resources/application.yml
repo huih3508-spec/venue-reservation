@@ -1,0 +1,35 @@
+#server：服务端口配置
+server:
+  port: 8080
+
+#spring：Spring 框架总配置
+spring:
+  datasource:  #MySQL 数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver  #数据库驱动类
+    url: jdbc:mysql://127.0.0.1:3306/venue_reservation?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false  #数据库连接地址
+    username: root
+    password: 123456
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+
+#mybatis-plus：持久层框架配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true #开启 "下划线" 转 "驼峰" 自动映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #SQL日志实现, 调试时直接看生成的SQL是否正确、参数有没有传对
+  global-config:
+    db-config:
+      id-type: auto  #主键生成策略为 "数据库自增"
+
+#jwt：令牌自定义配置
+jwt:
+  secret: abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz #secret：签名密钥, 要求:长度要足够; 保密,不写进公开仓库、不随接口返回; 前后端不参与密钥共享，密钥只留在服务端
+  expire: 7200  #expire：有效期, 作用：token存活时长，单位秒。'7200'秒 = 2小时，过期后token失效，需要重新登录。
+
+
+
+
