@@ -14,5 +14,5 @@ public class VerifyCode {
     private Long reservationId;
     private Integer isUsed;
     private  LocalDateTime createTime;
-    private LocalDateTime useTIme;
+    private LocalDateTime useTime;
 }
